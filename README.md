@@ -1,47 +1,47 @@
-# RAG-Documents-Q-A-using-NVIDIA
+PDF-RAG-App-using-NVIDIA-NIM
 
-## NVIDIA API with DeepSeek-V3.2 – Live Thinking (Reasoning) Streaming Example
+A Streamlit-based Retrieval-Augmented Generation (RAG) application that ingests PDF documents, generates embeddings using NVIDIA NIM, stores them in a Chroma vector database, and enables context-aware question answering using NVIDIA-hosted large language models.
 
-A lightweight Python script that demonstrates how to use the **NVIDIA NIM API** to interact with the **DeepSeek-V3.2** model in **thinking mode**. This mode streams the model's internal step-by-step reasoning in real time before delivering the final answer – perfect for observing chain-of-thought behavior live.
+Overview
 
-### Features
-- Real-time streaming of both reasoning steps and final response
-- Uses official OpenAI-compatible NVIDIA endpoint
-- Simple, clean, and ready-to-run
+This project demonstrates how to build a document intelligence system where users can ask natural language questions and receive answers grounded strictly in the content of uploaded PDF files. The system combines high-quality embeddings, efficient vector search, and a powerful LLM to deliver accurate and reliable responses.
 
-### Requirements
-- Python 3.7+
-- OpenAI Python library  
-  ```bash
-  pip install openai
-Getting Your NVIDIA API Key
+Key Features
 
-Visit https://build.nvidia.com
-Sign in or create a free account
-Search for and select the model: deepseek-ai/deepseek-v3.2
-Click Generate API Key
-Copy the key (free tier provides generous credits for testing)
+• PDF document ingestion from a local directory
+• Intelligent text chunking for better retrieval accuracy
+• Embedding generation using NVIDIA nv-embed-v1
+• Vector storage and semantic search using Chroma DB
+• Context-aware question answering with DeepSeek v3.2 via ChatNVIDIA
+• Transparent retrieval with visible document similarity results
+• Simple and interactive Streamlit interface
 
-Setup & Usage
+Architecture Summary
 
-Set your API key as an environment variable:Bashexport NVIDIA_API_KEY="your_api_key_here"
-Save the script as deepseek_thinking_stream.py
-Edit the prompt inside the messages list with your question
-Run the script:Bashpython deepseek_thinking_stream.py
+The application loads PDF documents and splits them into manageable chunks.
+Each chunk is converted into embeddings using NVIDIA NIM.
+Embeddings are stored in a Chroma vector database for fast semantic retrieval.
+When a user asks a question, the most relevant document chunks are retrieved and passed as context to the LLM.
+The LLM generates answers strictly based on the retrieved context.
 
-You’ll see the model’s reasoning steps printed first (as they stream), followed seamlessly by the final answer.
-Important Notes
+Technologies Used
 
-The special parameter thinking: True enables the visible chain-of-thought/reasoning output
-Reasoning tokens appear before regular content tokens in the stream
-Always keep your API key secure and never commit it to version control
-Free tier has usage limits – sufficient for experimentation and small projects
+Streamlit for user interface
+LangChain for RAG orchestration
+NVIDIA NIM for embeddings and LLM inference
+Chroma DB for vector storage
+DeepSeek v3.2 as the underlying language model
 
-Example Use Cases
+Use Cases
 
-Debugging complex prompts
-Educational demos of LLM reasoning
-Building transparent AI applications
-Prototyping RAG systems with visible thought processes
+Document-based question answering
+Enterprise knowledge base search
+Research paper and report analysis
+Internal documentation exploration
+RAG system prototyping using NVIDIA infrastructure
 
-Enjoy watching DeepSeek-V3.2 think step-by-step in real time! 🚀
+Project Highlights
+
+This project showcases an end-to-end RAG pipeline using NVIDIA’s AI ecosystem.
+It demonstrates practical usage of embeddings, vector databases, and LLMs in a production-style application.
+Designed to be modular, scalable, and suitable for real-world GenAI workflows.
